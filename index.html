@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Krzywej Hilberta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Krzywa Hilberta</h1>
+            <p class="subtitle">Interaktywny generator fraktalnej krzywej wypełniającej przestrzeń</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="iterations">Liczba iteracji (n):</label>
+                <div class="slider-container">
+                    <input type="range" id="iterations" min="1" max="8" value="4">
+                    <span id="iteration-value" class="value-display">4</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="lineColor">Kolor linii:</label>
+                <input type="color" id="lineColor" value="#00d4ff">
+            </div>
+
+            <div class="control-group">
+                <label for="lineWidth">Grubość linii:</label>
+                <div class="slider-container">
+                    <input type="range" id="lineWidth" min="0.5" max="5" step="0.5" value="1.5">
+                    <span id="lineWidth-value" class="value-display">1.5</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="animated">
+                    <input type="checkbox" id="animated">
+                    Animacja rysowania
+                </label>
+            </div>
+
+            <button id="generateBtn" class="generate-btn">
+                <span class="btn-icon">⟳</span>
+                Generuj
+            </button>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="hilbertCanvas"></canvas>
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <span>Generowanie...</span>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Iteracja:</span>
+                <span id="stat-iteration" class="stat-value">4</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Punkty:</span>
+                <span id="stat-points" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Długość krzywej:</span>
+                <span id="stat-length" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>O Krzywej Hilberta</h2>
+            <p>
+                Krzywa Hilberta to <strong>krzywa wypełniająca przestrzeń</strong> (space-filling curve), 
+                odkryta przez niemieckiego matematyka <strong>Davida Hilberta</strong> w 1891 roku.
+            </p>
+            <p>
+                Jest to ciągła krzywa fraktalna, która w granicy (przy nieskończonej liczbie iteracji) 
+                przechodzi przez każdy punkt kwadratu jednostkowego. Każda kolejna iteracja zwiększa 
+                liczbę punktów <strong>4-krotnie</strong>.
+            </p>
+            <div class="formula">
+                Liczba punktów = 4<sup>n</sup> gdzie n = liczba iteracji
+            </div>
+        </div>
+    </div>
+
+    <script src="hilbert.js"></script>
+</body>
+</html>

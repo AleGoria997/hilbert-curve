@@ -1,0 +1,318 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0d0d2b 100%);
+    min-height: 100vh;
+    color: #e0e0e0;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    background: linear-gradient(90deg, #00d4ff, #7b2fff, #ff2d95);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.subtitle {
+    color: #888;
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.control-group label {
+    font-size: 0.9rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 150px;
+    height: 6px;
+    background: linear-gradient(90deg, #00d4ff33, #7b2fff33);
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #00d4ff, #7b2fff);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    transition: transform 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50px;
+    height: 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: transparent;
+    overflow: hidden;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #00d4ff;
+    cursor: pointer;
+}
+
+.value-display {
+    background: rgba(0, 212, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #00d4ff;
+    min-width: 40px;
+    text-align: center;
+}
+
+.generate-btn {
+    background: linear-gradient(135deg, #00d4ff, #7b2fff);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+.generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.generate-btn:hover .btn-icon {
+    transform: rotate(180deg);
+}
+
+.canvas-container {
+    position: relative;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+                inset 0 0 60px rgba(0, 212, 255, 0.05);
+}
+
+#hilbertCanvas {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: #00d4ff;
+}
+
+.loading.hidden {
+    display: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 212, 255, 0.2);
+    border-top-color: #00d4ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #00d4ff, #7b2fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.info-panel {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-panel h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #00d4ff;
+}
+
+.info-panel p {
+    color: #aaa;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.info-panel strong {
+    color: #e0e0e0;
+}
+
+.formula {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    color: #00d4ff;
+    text-align: center;
+    border-left: 3px solid #00d4ff;
+}
+
+.formula sup {
+    font-size: 0.8em;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .controls {
+        padding: 1rem;
+    }
+
+    input[type="range"] {
+        width: 100px;
+    }
+
+    .stats {
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 0.8rem 1rem;
+    }
+}
