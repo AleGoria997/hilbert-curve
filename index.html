@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
+
 <body>
     <div class="container">
         <header class="header">
@@ -75,20 +77,54 @@
         <div class="info-panel">
             <h2>O Krzywej Hilberta</h2>
             <p>
-                Krzywa Hilberta to <strong>krzywa wypełniająca przestrzeń</strong> (space-filling curve), 
+                Krzywa Hilberta to <strong>krzywa wypełniająca przestrzeń</strong> (space-filling curve),
                 odkryta przez niemieckiego matematyka <strong>Davida Hilberta</strong> w 1891 roku.
             </p>
             <p>
-                Jest to ciągła krzywa fraktalna, która w granicy (przy nieskończonej liczbie iteracji) 
-                przechodzi przez każdy punkt kwadratu jednostkowego. Każda kolejna iteracja zwiększa 
+                Jest to ciągła krzywa fraktalna, która w granicy (przy nieskończonej liczbie iteracji)
+                przechodzi przez każdy punkt kwadratu jednostkowego. Każda kolejna iteracja zwiększa
                 liczbę punktów <strong>4-krotnie</strong>.
             </p>
             <div class="formula">
                 Liczba punktów = 4<sup>n</sup> gdzie n = liczba iteracji
             </div>
         </div>
+
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://muma.edu.pl" target="_blank" class="social-link" title="Muzeum Matematyki (WWW)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path
+                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                        </path>
+                    </svg>
+                    <span>muma.edu.pl</span>
+                </a>
+                <a href="https://www.facebook.com/muma.kornik" target="_blank" class="social-link" title="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+                <a href="https://www.instagram.com/muma_kornik/" target="_blank" class="social-link" title="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2026 Muzeum Matematyki w Kórniku</p>
+        </footer>
     </div>
 
     <script src="hilbert.js"></script>
 </body>
+
 </html>
