@@ -2,6 +2,8 @@
 
 Interaktywna aplikacja webowa do wizualizacji Krzywej Hilberta - ciągłej krzywej fraktalnej wypełniającej przestrzeń.
 
+[Zobacz działające demo](https://alegoria997.github.io/hilbert-curve/)
+
 ## 🌟 Możliwości
 
 - **Wizualizacja w czasie rzeczywistym**: Generowanie krzywej od 1 do 8 stopnia iteracji.
